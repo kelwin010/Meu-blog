@@ -20,8 +20,8 @@
 
     <section class="hero">
       <div class="container">
-        <h1>Bem-vindo ao meu espaço que eu mostro as minhas ideias</h1>
-        <p>Descubra mais sobre mim e sobre a minha jornada.</p>
+        <h1>Blog do Lima</h1>
+        <p>Descubra mais sobre a minha jornada.</p>
         <a class="button" href="posts.html">Ver posts recentes</a>
       </div>
     </section>
@@ -40,8 +40,32 @@
           <h3>Fale comigo</h3>
           <p>Envie uma mensagem para começar uma conversa sobre o tema que você mais gosta.</p>
         </div>
-        <a class="button button-secondary" href="mailto:contato@meublog.com">contato@meublog.com</a>
+        <div class="footer-actions">
+          <button class="theme-toggle" id="themeToggle" type="button">🌙 Modo escuro</button>
+          <a class="button button-secondary" href="mailto:contato@meublog.com">contato@meublog.com</a>
+        </div>
       </div>
     </footer>
+
+    <script>
+      const toggleButton = document.getElementById('themeToggle');
+      const body = document.body;
+
+      const applyTheme = (theme) => {
+        body.classList.toggle('dark-theme', theme === 'dark');
+        toggleButton.textContent = theme === 'dark' ? '☀️ Modo claro' : '🌙 Modo escuro';
+        localStorage.setItem('theme', theme);
+      };
+
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        applyTheme(savedTheme);
+      }
+
+      toggleButton.addEventListener('click', () => {
+        const nextTheme = body.classList.contains('dark-theme') ? 'light' : 'dark';
+        applyTheme(nextTheme);
+      });
+    </script>
   </body>
 </html>
