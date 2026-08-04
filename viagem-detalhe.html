@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detalhe da viagem - Meu Blog</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="logo" href="index.html">Meu Blog</a>
+        <nav class="main-nav">
+          <a href="posts.html">Posts</a>
+          <a href="index.html#sobre">Sobre</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container detail-page">
+      <div class="detail-card">
+        <img id="detailImage" class="detail-image" src="" alt="" />
+        <div class="detail-caption">
+          <p class="detail-label">Foto da viagem</p>
+          <h1 id="detailTitle">Carregando...</h1>
+          <p id="detailText">Aguarde enquanto a imagem é carregada.</p>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      const photos = {
+        serra: {
+          src: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=80',
+          alt: 'Pico coberto por neblina entre montanhas',
+          title: 'Serra da Bocaina',
+          text: 'Uma manhã de céu limpo e uma trilha que parecia levar direto para o horizonte, com a paisagem se abrindo em cada curva.'
+        },
+        praia: {
+          src: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1400&q=80',
+          alt: 'Praia com ondas claras e um pôr do sol dourado',
+          title: 'Praia do Sol',
+          text: 'O pôr do sol coloriu o mar com tons quentes e deu à viagem um encerramento mágico.'
+        },
+        cidade: {
+          src: 'https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=1400&q=80',
+          alt: 'Rua movimentada de uma cidade com prédios modernos',
+          title: 'Rotas da cidade',
+          text: 'As ruas cheias de vida, os prédios e as histórias entre os passeios mostraram uma parte diferente da viagem.'
+        },
+        aldeia: {
+          src: 'https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=1400&q=80',
+          alt: 'Aldeia cercada por natureza e casas acolhedoras',
+          title: 'Village escondida',
+          text: 'Pequenas casas, silêncio e um cenário acolhedor que fez a experiência parecer ainda mais especial.'
+        },
+        campo: {
+          src: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1400&q=80',
+          alt: 'Campo aberto com colinas verdes e céu azul',
+          title: 'Campos verdes',
+          text: 'O vento e a paisagem ampla fizeram deste lugar um momento de paz e descanso.'
+        },
+        ponte: {
+          src: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=80',
+          alt: 'Ponte sobre rio cercada por vegetação',
+          title: 'Ponte sobre o rio',
+          text: 'A vista do rio e da ponte ficou marcada pela calma do lugar.'
+        },
+        floresta: {
+          src: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1400&q=80',
+          alt: 'Floresta com árvores altas e luz filtrada',
+          title: 'Floresta serena',
+          text: 'O som da natureza e a sombra das árvores levaram a viagem a um outro nível.'
+        },
+        mirante: {
+          src: 'https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1400&q=80',
+          alt: 'Mirante com vista ampla para o vale',
+          title: 'Mirante do vale',
+          text: 'Da altura, a paisagem parecia se estender sem fim, revelando detalhes que não se veem de perto.'
+        },
+        cafe: {
+          src: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1400&q=80',
+          alt: 'Mesa com café e paisagem ao fundo',
+          title: 'Café da manhã em viagem',
+          text: 'Um momento simples, mas cheio de calma, sabor e boa companhia.'
+        },
+        estrada: {
+          src: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1400&q=80',
+          alt: 'Estrada de montanha com curvas e árvores',
+          title: 'Estrada da aventura',
+          text: 'Cada curva desta estrada trouxe uma nova surpresa e uma nova vista.'
+        },
+        lagoa: {
+          src: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1400&q=80',
+          alt: 'Lagoa rodeada por montanhas e vegetação',
+          title: 'Lagoa azul',
+          text: 'A água cristalina e as montanhas ao redor deixaram o lugar ainda mais encantador.'
+        },
+        festival: {
+          src: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1400&q=80',
+          alt: 'Festival ao ar livre com pessoas celebrando',
+          title: 'Festival à noite',
+          text: 'A energia da festa e a iluminação transformaram a noite em um momento inesquecível.'
+        }
+      };
+
+      const params = new URLSearchParams(window.location.search);
+      const key = params.get('foto') || 'serra';
+      const photo = photos[key] || photos.serra;
+
+      document.getElementById('detailImage').src = photo.src;
+      document.getElementById('detailImage').alt = photo.alt;
+      document.getElementById('detailTitle').textContent = photo.title;
+      document.getElementById('detailText').textContent = photo.text;
+    </script>
+  </body>
+</html>
