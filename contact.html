@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contato | Meu Blog</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="logo" href="index.html">Meu Blog</a>
+        <nav class="main-nav">
+          <a href="posts.html">Posts</a>
+          <a href="index.html#sobre">Sobre</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="contact-page">
+      <section class="contact-card">
+        <h1>Mande suas mensagens</h1>
+        <p>Preencha os campos abaixo para entrar em contato.</p>
+        <form id="meu-form" class="contact-form">
+          <div class="form-field">
+            <label for="email">Digite seu email</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+
+          <div class="form-field">
+            <label for="message">Sua mensagem</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+
+          <div class="form-actions">
+            <button class="button" type="submit">Enviar</button>
+          </div>
+        </form>
+        <p id="form-status" class="form-status" aria-live="polite"></p>
+      </section>
+    </main>
+
+    <script>
+      const form = document.getElementById('meu-form');
+      const status = document.getElementById('form-status');
+
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        status.textContent = 'Enviando...';
+
+        const response = await fetch('https://kelwin09.app.n8n.cloud/webhook/7cc6e117-e387-44f0-b96f-eaa505a0a8a7', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email: document.getElementById('email').value,
+            message: document.getElementById('message').value
+          })
+        });
+
+        if (response.ok) {
+          status.textContent = 'Mensagem enviada com sucesso!';
+          form.reset();
+        } else {
+          status.textContent = 'Não foi possível enviar. Tente novamente.';
+        }
+      });
+    </script>
+  </body>
+</html>

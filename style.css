@@ -5,9 +5,9 @@
   --muted: #555555;
   --primary: #8c02ab;
   --primary-dark: #78009d;
-  --border: #e1e3e8;
+  --border: #000000;
   --footer-bg: #1a293e;
-  --footer-text: #f7fbff;
+  --footer-text: #ffffff;
 }
 
 body.dark-theme {
@@ -73,7 +73,7 @@ body {
 
 .hero {
   padding: 5rem 0;
-  background: linear-gradient(135deg, #eaf3ff 0%, #ffffff 100%);
+  background: linear-gradient(135deg, #a431e8 0%, #ffffff 100%);
 }
 
 .hero h1 {
@@ -112,9 +112,14 @@ body {
   margin-bottom: 3rem;
 }
 
+.about-section {
+  margin-top: 8rem;
+  padding-top: 2rem;
+}
+
 .posts-section h2,
 .about-section h2 {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   font-size: 2rem;
 }
 
@@ -162,6 +167,8 @@ body {
   max-width: 42rem;
   color: var(--muted);
   margin-bottom: 1rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
 }
 
 .site-footer {
@@ -217,4 +224,75 @@ body {
   .hero {
     padding: 3rem 0;
   }
+}
+
+.contact-page {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1rem 4rem;
+}
+
+.contact-card {
+  width: min(100%, 720px);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 1.25rem;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(33, 41, 61, 0.08);
+}
+
+.contact-card h1 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.contact-card p {
+  margin-top: 0;
+  color: var(--muted);
+}
+
+.contact-form {
+  display: grid;
+  gap: 1rem;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-field label {
+  font-weight: 600;
+}
+
+.form-field input,
+.form-field textarea {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 0.9rem;
+  font: inherit;
+  color: var(--text);
+  background: #fff;
+}
+
+.form-field textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.form-status {
+  margin-top: 1rem;
+  text-align: center;
+  font-weight: 600;
+  color: var(--primary-dark);
 }

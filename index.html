@@ -9,11 +9,10 @@
   <body>
     <header class="site-header">
       <div class="container header-inner">
-        <a class="logo" href="#">Meu Blog</a>
+        <a class="logo" href="index.html">Meu Blog</a>
         <nav class="main-nav">
-          <a href="#posts">Posts</a>
-          <a href="#sobre">Sobre</a>
-          <a href="#contato">Contato</a>
+          <a href="posts.html">Posts</a>
+          <a href="index.html#sobre">Sobre</a>
         </nav>
       </div>
     </header>
@@ -41,31 +40,9 @@
           <p>Envie uma mensagem para começar uma conversa sobre o tema que você mais gosta.</p>
         </div>
         <div class="footer-actions">
-          <button class="theme-toggle" id="themeToggle" type="button">🌙 Modo escuro</button>
-          <a class="button button-secondary" href="mailto:contato@meublog.com">contato@meublog.com</a>
+          <a class="button button-secondary" href="contato.html">Mande suas mensagens</a>
         </div>
       </div>
     </footer>
-
-    <script>
-      const toggleButton = document.getElementById('themeToggle');
-      const body = document.body;
-
-      const applyTheme = (theme) => {
-        body.classList.toggle('dark-theme', theme === 'dark');
-        toggleButton.textContent = theme === 'dark' ? '☀️ Modo claro' : '🌙 Modo escuro';
-        localStorage.setItem('theme', theme);
-      };
-
-      const savedTheme = localStorage.getItem('theme');
-      if (savedTheme) {
-        applyTheme(savedTheme);
-      }
-
-      toggleButton.addEventListener('click', () => {
-        const nextTheme = body.classList.contains('dark-theme') ? 'light' : 'dark';
-        applyTheme(nextTheme);
-      });
-    </script>
   </body>
 </html>
